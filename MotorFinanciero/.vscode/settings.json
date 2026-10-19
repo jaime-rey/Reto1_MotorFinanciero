@@ -1,0 +1,7 @@
+{
+  "code-runner.executorMap": {
+    "csharp": "dotnet run --framework net10.0"
+  },
+  "code-runner.runInTerminal": true,
+  "code-runner.fileDirectoryAsCwd": true
+}

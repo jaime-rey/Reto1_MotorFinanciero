@@ -1,0 +1,8 @@
+# Carpetas que genera .NET al compilar
+bin/
+obj/
+
+# Archivos de Visual Studio y del usuario
+.vs/
+*.user
+*.suo
