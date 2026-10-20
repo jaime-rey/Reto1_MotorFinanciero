@@ -8,3 +8,6 @@ obj/
 *.suo
 
 .vscode/
+
+# Archivos de JetBrains Rider
+.idea/
