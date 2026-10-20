@@ -55,6 +55,44 @@ public static class EntradaDatos
     }
 
     /// <summary>
+    /// Pide un número decimal sin máximo
+    /// </summary>
+    public static double LeerDouble(String mensaje)
+    {
+        while (true)
+            {
+            Console.Write(mensaje);
+            var texto = LeerLinea();
+
+            try
+                {
+                    // Normalizamos la coma a punto y convertimos el texto a double.
+                    // double.Parse lanza FormatException si el texto no es un número.
+                    string normalizado = texto.Trim().Replace(',', '.');
+                    double valor = double.Parse(normalizado, NumberStyles.Float, CultureInfo.InvariantCulture);
+                    if (double.IsNaN(valor) || double.IsInfinity(valor))
+                    {
+                        throw new FormatException();
+                    }
+                    if (valor <= 0)
+                    {
+                        MostrarError($"El valor debe ser mayor que 0.");
+                    }
+                    else
+                    {
+                        return valor;
+                    }
+                    
+                } catch (FormatException)
+            {
+                MostrarError("Debes introducir un número (por ejemplo: 1500,50).");
+            }
+            
+            }
+    }
+    
+
+    /// <summary>
     /// Pide un número entero comprendido entre minimo y maximo.
     /// </summary>
     public static int LeerEntero(string mensaje, int minimo, int maximo)

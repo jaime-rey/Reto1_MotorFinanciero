@@ -120,6 +120,13 @@ public static class ValidadorUsuario
         string parteNumerica = dni.Substring(0, 8);
         char letra = dni[8];
 
+        // int.Parse aceptaría signos (+/-) y espacios, así que se exigen solo dígitos 0-9.
+        if (!parteNumerica.All(c => c >= '0' && c <= '9'))
+        {
+            EntradaDatos.MostrarError("Los 8 primeros caracteres del DNI deben ser números.");
+            return false;
+        }
+
         try
         {
             // Conversión string -> int. Si hay letras en la parte numérica, salta FormatException.

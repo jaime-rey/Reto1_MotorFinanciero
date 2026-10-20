@@ -23,11 +23,11 @@ public static class Program
         // Formato español en los números: 1.234,56
         CultureInfo.CurrentCulture = new CultureInfo("es-ES");
 
-        Console.WriteLine("╔══════════════════════════════════════╗");
-        Console.WriteLine("║   MOTOR FINANCIERO - Reto 1 DAM      ║");
-        Console.WriteLine("╚══════════════════════════════════════╝");
+        Console.WriteLine("╔══════════════════════════════════════════════════════╗");
+        Console.WriteLine("║   MOTOR FINANCIERO - Reto 1 - PROGRAMACIÓN - 1 DAM   ║");
+        Console.WriteLine("╚══════════════════════════════════════════════════════╝");
 
-        bool salir = false;
+        var salir = false;
 
         try
         {
@@ -35,7 +35,7 @@ public static class Program
             while (!salir)
             {
                 MostrarMenu();
-                int opcion = EntradaDatos.LeerEntero("Elige una opción: ", 0, 3);
+                var opcion = EntradaDatos.LeerEntero("Elige una opción: ", 0, 4);
 
                 switch (opcion)
                 {
@@ -47,6 +47,9 @@ public static class Program
                         break;
                     case 3:
                         CalculadoraPrestamo.Ejecutar();
+                        break;
+                    case 4:
+                        CalculadoraImpuestos.CambiarIvaProducto();
                         break;
                     case 0:
                         salir = true;
@@ -75,6 +78,7 @@ public static class Program
         Console.WriteLine("  1) Calcular IVA de una operación");
         Console.WriteLine("  2) Validar datos de un usuario");
         Console.WriteLine("  3) Simular préstamo (tabla de amortización)");
+        Console.WriteLine("  4) Cambiar IVA de un producto");
         Console.WriteLine("  0) Salir");
         Console.WriteLine("--------------------------------------");
     }
