@@ -1,10 +1,24 @@
 # Reto 1 – Algoritmos y Lógica de Control: El Motor de la Aplicación
 
-Aplicación de consola en C# (.NET 10) que hace tres cosas desde un menú:
+Aplicación de consola en C# (.NET 10). Al arrancar pide **inicio de sesión** (3 intentos) y después ofrece un menú:
 
 1. **Calcular IVA** de una operación (general 21 %, reducido 10 %, superreducido 4 %, exento 0 %).
-2. **Validar un usuario**: nombre de usuario, contraseña, DNI (con letra de control) y edad.
+2. **Validar un usuario**: nombre de usuario, contraseña, DNI (con letra de control) y edad. Si es válido, se añade a los usuarios permitidos para el login.
 3. **Simular un préstamo** y mostrar la tabla de amortización (sistema francés, cuota fija).
+4. **Cambiar el IVA de un producto**.
+5. **Cerrar sesión (logout)** y volver a iniciar sesión con cualquier usuario, antiguo o nuevo.
+
+## Usuarios y login
+
+Los usuarios se guardan en `usuarios.csv` (formato `usuario;contraseña`, una línea por usuario), junto al ejecutable (`MotorFinanciero/bin/Debug/net10.0/`). El fichero se crea solo la primera vez con estos usuarios de prueba:
+
+| Usuario | Contraseña |
+|---|---|
+| `admin` | `Admin1234` |
+| `jaime` | `Dam12345` |
+| `invitado` | `Invitado1` |
+
+Usuario y contraseña deben cumplir las mismas reglas que en la opción 2 (usuario de 4 a 15 letras o números; contraseña de mínimo 8 caracteres con mayúscula, minúscula y número). Las contraseñas se guardan en texto plano: es solo un ejercicio de clase.
 
 ## Cómo ejecutarlo
 
@@ -24,6 +38,7 @@ Requiere el SDK de .NET 10.
 | `EntradaDatos.cs` | Lectura segura por consola con `try-catch` (no se cae con letras, vacíos, etc.) y la excepción propia `EntradaCerradaException`. |
 | `CalculadoraImpuestos.cs` | Cálculo del IVA con `switch` y `Math.Round`. |
 | `ValidadorUsuario.cs` | Validaciones con `if / else if / else`, `do-while`, `for` y una consulta LINQ. |
+| `Autenticacion.cs` | Login con 3 intentos, lista de usuarios (`Dictionary`) y lectura/escritura de `usuarios.csv`. |
 | `CalculadoraPrestamo.cs` | Cuota con `Math.Pow` y tabla de amortización con `for` / `while`. |
 
 ## Fórmula de la cuota (sistema francés)
