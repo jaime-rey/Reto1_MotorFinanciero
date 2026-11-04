@@ -1,6 +1,7 @@
 using System;
+using MotorFinanciero.IO;
 
-namespace MotorFinanciero;
+namespace MotorFinanciero.Calculos;
 
 /// <summary>
 /// Opción 3 del menú: simulador de préstamo con tabla de amortización

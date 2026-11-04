@@ -1,7 +1,7 @@
 using System;
 using System.Globalization;
 
-namespace MotorFinanciero;
+namespace MotorFinanciero.IO;
 
 /// <summary>
 /// Métodos para pedir datos al usuario por consola de forma segura.

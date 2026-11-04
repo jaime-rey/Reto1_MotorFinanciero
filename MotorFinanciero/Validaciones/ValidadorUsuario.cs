@@ -1,7 +1,8 @@
 using System;
 using System.Linq;
+using MotorFinanciero.IO;
 
-namespace MotorFinanciero;
+namespace MotorFinanciero.Validaciones;
 
 /// <summary>
 /// Opción 2 del menú: alta y validación de un cliente.
@@ -39,6 +40,15 @@ public static class ValidadorUsuario
 
         Console.WriteLine();
         EntradaDatos.MostrarOk($"Usuario '{usuario}' validado correctamente (DNI {dni}).");
+
+        if (Autenticacion.RegistrarUsuario(usuario, password))
+        {
+            EntradaDatos.MostrarOk($"Usuario '{usuario}' añadido a la lista de usuarios permitidos.");
+        }
+        else
+        {
+            EntradaDatos.MostrarError($"El usuario '{usuario}' ya existe: no se ha añadido de nuevo.");
+        }
 
         // Condicional final: solo los mayores de edad pueden pedir un préstamo.
         if (edad >= Constantes.EDAD_MINIMA)

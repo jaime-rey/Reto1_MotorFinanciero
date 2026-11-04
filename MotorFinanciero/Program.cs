@@ -1,6 +1,9 @@
 ﻿using System;
 using System.Globalization;
 using System.Text;
+using MotorFinanciero.Calculos;
+using MotorFinanciero.IO;
+using MotorFinanciero.Validaciones;
 
 namespace MotorFinanciero;
 
@@ -31,11 +34,17 @@ public static class Program
 
         try
         {
+            if (!Autenticacion.IniciarSesion())
+            {
+                EntradaDatos.MostrarError("Demasiados intentos fallidos. Acceso denegado.");
+                return;
+            }
+
             // Bucle principal: se repite hasta que el usuario elige "Salir"
             while (!salir)
             {
                 MostrarMenu();
-                var opcion = EntradaDatos.LeerEntero("Elige una opción: ", 0, 4);
+                var opcion = EntradaDatos.LeerEntero("Elige una opción: ", 0, 5);
 
                 switch (opcion)
                 {
@@ -50,6 +59,14 @@ public static class Program
                         break;
                     case 4:
                         CalculadoraImpuestos.CambiarIvaProducto();
+                        break;
+                    case 5:
+                        Console.WriteLine("Sesión cerrada.");
+                        if (!Autenticacion.IniciarSesion())
+                        {
+                            EntradaDatos.MostrarError("Demasiados intentos fallidos. Acceso denegado.");
+                            salir = true;
+                        }
                         break;
                     case 0:
                         salir = true;
@@ -79,6 +96,7 @@ public static class Program
         Console.WriteLine("  2) Validar datos de un usuario");
         Console.WriteLine("  3) Simular préstamo (tabla de amortización)");
         Console.WriteLine("  4) Cambiar IVA de un producto");
+        Console.WriteLine("  5) Cerrar sesión (logout)");
         Console.WriteLine("  0) Salir");
         Console.WriteLine("--------------------------------------");
     }

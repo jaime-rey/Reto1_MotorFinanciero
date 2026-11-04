@@ -1,3 +1,5 @@
+using MotorFinanciero.Calculos;
+
 namespace MotorFinanciero.Tests;
 
 public class CalculadoraPrestamoTests

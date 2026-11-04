@@ -1,3 +1,5 @@
+using MotorFinanciero.Validaciones;
+
 namespace MotorFinanciero.Tests;
 
 public class ValidadorUsuarioTests

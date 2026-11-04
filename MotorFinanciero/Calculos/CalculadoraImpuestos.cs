@@ -1,6 +1,7 @@
 using System;
+using MotorFinanciero.IO;
 
-namespace MotorFinanciero;
+namespace MotorFinanciero.Calculos;
 
 /// <summary>
 /// Opción 1 del menú: cálculo del IVA de una operación.

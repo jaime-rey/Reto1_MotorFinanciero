@@ -1,4 +1,6 @@
-﻿namespace MotorFinanciero.Tests;
+﻿using MotorFinanciero.Calculos;
+
+namespace MotorFinanciero.Tests;
 
 public class CalculadoraImpuestosTests
 {
