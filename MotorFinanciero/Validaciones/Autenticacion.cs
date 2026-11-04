@@ -81,8 +81,8 @@ public static class Autenticacion
 
         for (var intento = 1; intento <= MAX_INTENTOS; intento++)
         {
-            var usuario = EntradaDatos.LeerTexto("Usuario: ");
-            var password = EntradaDatos.LeerTexto("Contraseña: ");
+            var usuario = EntradaDatos.LeerTexto("Usuario (invitado): ");
+            var password = EntradaDatos.LeerTexto("Contraseña (Invitado1): ");
 
             // Antes de comprobar las credenciales se aplican las reglas de ValidadorUsuario
             if (!ValidadorUsuario.EsUsuarioValido(usuario) || !ValidadorUsuario.EsPasswordValida(password))
